@@ -27,6 +27,9 @@
 #include "model/ndn-l3-protocol.hpp"
 #include "helper/ndn-fib-helper.hpp"
 
+#include "src/ndnSIM/utils/ndnsim-globe.hpp"
+#define configFilePath "src/ndnSIM/examples/etc/config.xml"
+
 #include <memory>
 
 NS_LOG_COMPONENT_DEFINE("ndn.Producer");
@@ -93,6 +96,15 @@ Producer::StopApplication()
 void
 Producer::OnInterest(shared_ptr<const Interest> interest)
 {
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  //evil, return
+  std::stringstream ss;
+  ss<<(interest->getName());
+  if(ss.str().find("/Evil", 0)!=std::string::npos)
+  {
+      return;
+  }
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   App::OnInterest(interest); // tracing inside
 
   NS_LOG_FUNCTION(this << interest);
@@ -126,10 +138,34 @@ Producer::OnInterest(shared_ptr<const Interest> interest)
 
   // to create real wire encoding
   data->wireEncode();
-
-  m_transmittedDatas(data, this, m_face);
-  m_appLink->onReceiveData(*data);
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  if(ss.str().find("/Collusive", 0)!=std::string::npos)
+  {
+	  ConfigurationParameter g_CP;
+	  g_CP.readConf();
+	  Simulator::Schedule(Seconds(g_CP.getAttackDelay()), &Producer::SendDataNDelay, this, data);
+	  //SendDataNoDelay(data);
+  }
+  else
+  {
+	  SendDataNoDelay(data);
+  }
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
-
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+void
+Producer::SendDataNDelay(shared_ptr<const Data> data)
+{
+	m_transmittedDatas(data, this, m_face);
+	m_appLink->onReceiveData(*data);
+	//NS_LOG_INFO("*******node(" << GetNode()->GetId() << ") responding with Data: " << data->getName());
+}
+void
+Producer::SendDataNoDelay(shared_ptr<const Data> data)
+{
+	m_transmittedDatas(data, this, m_face);
+	m_appLink->onReceiveData(*data);
+}
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 } // namespace ndn
 } // namespace ns3

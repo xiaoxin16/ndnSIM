@@ -42,5 +42,5 @@ leaf-1	    rtr-1	10Mbps		1	1ms	100
 leaf-2	    rtr-1	10Mbps		1	1ms	100
 leaf-3	    rtr-2	10Mbps		1	1ms	100
 leaf-4	    rtr-2	10Mbps		1	1ms	100
-rtr-1	    root	10Mbps		1	1ms	100
-rtr-2	    root	10Mbps		1	1ms	100
+rtr-1	    root	10Mbps		1	500ms	100
+rtr-2	    root	10Mbps		1	500ms	100

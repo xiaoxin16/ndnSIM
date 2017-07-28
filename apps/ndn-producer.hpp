@@ -50,7 +50,14 @@ public:
   // inherited from NdnApp
   virtual void
   OnInterest(shared_ptr<const Interest> interest);
-
+  
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  void
+  SendDataNDelay(shared_ptr<const Data> data);
+  void
+  SendDataNoDelay(shared_ptr<const Data> data);
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  
 protected:
   // inherited from Application base class.
   virtual void

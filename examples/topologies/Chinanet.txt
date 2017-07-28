@@ -1,0 +1,194 @@
+router
+
+# node	city	y	x	mpi-partition
+Beijing	NA	39.9075	116.39723	1
+Shanghai	NA	31.22222	121.45806	1
+Guangzhou	NA	23.11667	113.25	1
+Xi'an	NA	34.25833	108.92861	1
+Hangzhou	NA	30.25528	120.16889	1
+Wuhan	NA	30.58333	114.26667	1
+Hefei	NA	31.86389	117.28083	1
+Nanjing	NA	32.06167	118.77778	1
+Haikou	NA	20.04583	110.34167	1
+HongKong	NA	30.13062	100.51803	1
+Xiamen	NA	24.47979	118.08187	1
+Hohhot	NA	40.81056	111.65222	1
+Yinchuan	NA	38.46806	106.27306	1
+Lanzhou	NA	36.05639	103.79222	1
+Lhasa	NA	29.65	91.1	1
+Shiquanhe	NA	32.51667	80.06667	1
+Kashi	NA	39.45472	75.97972	1
+Qingdao	NA	36.09861	120.37194	1
+Jinan	NA	36.66833	116.99722	1
+Shilazhuang	NA	38.04139	114.47861	1
+Taiyuan	NA	37.86944	112.56028	1
+Suzhou	NA	31.31139	120.61806	1
+Changsha	NA	28.2	112.96667	1
+Nanning	NA	22.81667	108.31667	1
+Tianjin	NA	39.14222	117.17667	1
+Chongqing	NA	29.56278	106.55278	1
+Guiyang	NA	26.58333	106.71667	1
+Kunming	NA	25.03889	102.71833	1
+Chengdu	NA	30.66667	104.06667	1
+Zhengzhou	NA	34.75778	113.64861	1
+Nandhang	NA	28.68333	115.88333	1
+Fuzhou	NA	26.06139	119.30611	1
+Dalian	NA	38.91222	121.60222	1
+Shenyang	NA	41.79222	123.43278	1
+Changchun	NA	43.88	125.32278	1
+Harbin	NA	45.75	126.65	1
+Urumqi	NA	43.8	87.58333	1
+Xining	NA	36.61667	101.76667	1
+
+BJServer	NA	39.9075	130	1
+SHServer	NA	31.22222	130	1
+GZServer	NA	23.11667	130	1
+XAServer	NA	34.25833	130	1
+
+AppBeijing	NA	39.9075	116.39723	1
+AppShanghai	NA	31.22222	121.45806	1
+AppGuangzhou	NA	23.11667	113.25	1
+AppXi'an	NA	34.25833	108.92861	1
+AppHangzhou	NA	30.25528	120.16889	1
+AppWuhan	NA	30.58333	114.26667	1
+AppHefei	NA	31.86389	117.28083	1
+AppNanjing	NA	32.06167	118.77778	1
+AppHaikou	NA	20.04583	110.34167	1
+AppHongKong	NA	30.13062	100.51803	1
+AppXiamen	NA	24.47979	118.08187	1
+AppHohhot	NA	40.81056	111.65222	1
+AppYinchuan	NA	38.46806	106.27306	1
+AppLanzhou	NA	36.05639	103.79222	1
+AppLhasa	NA	29.65	91.1	1
+AppShiquanhe	NA	32.51667	80.06667	1
+AppKashi	NA	39.45472	75.97972	1
+AppQingdao	NA	36.09861	120.37194	1
+AppJinan	NA	36.66833	116.99722	1
+AppShilazhuang	NA	38.04139	114.47861	1
+AppTaiyuan	NA	37.86944	112.56028	1
+AppSuzhou	NA	31.31139	120.61806	1
+AppChangsha	NA	28.2	112.96667	1
+AppNanning	NA	22.81667	108.31667	1
+AppTianjin	NA	39.14222	117.17667	1
+AppChongqing	NA	29.56278	106.55278	1
+AppGuiyang	NA	26.58333	106.71667	1
+AppKunming	NA	25.03889	102.71833	1
+AppChengdu	NA	30.66667	104.06667	1
+AppZhengzhou	NA	34.75778	113.64861	1
+AppNandhang	NA	28.68333	115.88333	1
+AppFuzhou	NA	26.06139	119.30611	1
+AppDalian	NA	38.91222	121.60222	1
+AppShenyang	NA	41.79222	123.43278	1
+AppChangchun	NA	43.88	125.32278	1
+AppHarbin	NA	45.75	126.65	1
+AppUrumqi	NA	43.8	87.58333	1
+AppXining	NA	36.61667	101.76667	1
+
+link
+# from	to	capacity	metric	delay	queue
+Hangzhou	Shanghai	50Mbps	1	10ms	10
+Wuhan	Changsha	50Mbps	1	10ms	10
+Wuhan	Nanjing	50Mbps	1	10ms	10
+Wuhan	Haikou	50Mbps	1	10ms	10
+Wuhan	Xi'an	50Mbps	1	10ms	10
+Wuhan	Beijing	50Mbps	1	10ms	10
+Wuhan	Shanghai	50Mbps	1	10ms	10
+Hefei	Shanghai	50Mbps	1	10ms	10
+Nanjing	Beijing	50Mbps	1	10ms	10
+Nanjing	Chengdu	50Mbps	1	10ms	10
+Nanjing	Xi'an	50Mbps	1	10ms	10
+Nanjing	Fuzhou	50Mbps	1	10ms	10
+Nanjing	Suzhou	50Mbps	1	10ms	10
+Nanjing	Shanghai	50Mbps	1	10ms	10
+Haikou	Guangzhou	50Mbps	1	10ms	10
+HongKong	Shanghai	50Mbps	1	10ms	10
+HongKong	Beijing	50Mbps	1	10ms	10
+HongKong	Guangzhou	50Mbps	1	10ms	10
+Guangzhou	Beijing	100Mbps	1	10ms	15
+Guangzhou	Nanning	50Mbps	1	10ms	10
+Guangzhou	Chongqing	50Mbps	1	10ms	10
+Guangzhou	Xi'an	100Mbps	1	10ms	10
+Guangzhou	Chengdu	50Mbps	1	10ms	10
+Guangzhou	Xiamen	50Mbps	1	10ms	10
+Guangzhou	Tianjin	50Mbps	1	10ms	10
+Guangzhou	Kunming	50Mbps	1	10ms	10
+Guangzhou	Shanghai	100Mbps	1	10ms	10
+Guangzhou	Guiyang	50Mbps	1	10ms	10
+Hohhot	Xi'an	50Mbps	1	10ms	10
+Hohhot	Beijing	50Mbps	1	10ms	10
+Yinchuan	Xi'an	50Mbps	1	10ms	10
+Yinchuan	Beijing	50Mbps	1	10ms	10
+Lanzhou	Xi'an	50Mbps	1	10ms	10
+Lanzhou	Beijing	10Gbps	1	10ms	10
+Lhasa	Shiquanhe	50Mbps	1	10ms	10
+Lhasa	Beijing	50Mbps	1	10ms	20
+Lhasa	Chengdu	50Mbps	1	10ms	10
+Kashi	Urumqi	50Mbps	1	10ms	10
+Qingdao	Tianjin	50Mbps	1	10ms	10
+Jinan	Shanghai	50Mbps	1	10ms	10
+Shilazhuang	Beijing	50Mbps	1	10ms	10
+Taiyuan	Xi'an	50Mbps	1	10ms	10
+Taiyuan	Beijing	50Mbps	1	10ms	10
+Suzhou	Shanghai	50Mbps	1	10ms	10
+Shanghai	Xi'an	100Mbps	1	10ms	10
+Shanghai	Nandhang	50Mbps	1	10ms	10
+Shanghai	Chengdu	50Mbps	1	10ms	10
+Shanghai	Beijing	100Mbps	1	10ms	10
+Shanghai	Tianjin	50Mbps	1	10ms	10
+Beijing	Zhengzhou	50Mbps	1	10ms	10
+Beijing	Xi'an	100Mbps	1	10ms	10
+Beijing	Shenyang	50Mbps	1	10ms	10
+Beijing	Tianjin	50Mbps	1	10ms	10
+Beijing	Changchun	50Mbps	1	10ms	10
+Beijing	Harbin	50Mbps	1	10ms	10
+Beijing	Urumqi	50Mbps	1	10ms	10
+Beijing	Xining	50Mbps	1	10ms	10
+Tianjin	Dalian	50Mbps	1	10ms	10
+Chongqing	Chengdu	50Mbps	1	10ms	10
+Guiyang	Chengdu	50Mbps	1	10ms	10
+Xi'an	Urumqi	50Mbps	1	10ms	10
+Xi'an	Xining	50Mbps	1	10ms	10
+
+BJServer	Beijing	1Gbps	1	10ms	10
+SHServer	Shanghai	1Gbps	1	10ms	10
+GZServer	Guangzhou	1Gbps	1	10ms	10
+XAServer	Xi'an	1Gbps	1	10ms	10
+
+Beijing	AppBeijing	50Mbps	1	1ms	10
+Shanghai	AppShanghai	50Mbps	1	1ms	10
+Guangzhou	AppGuangzhou	50Mbps	1	1ms	10
+Xi'an	AppXi'an	50Mbps	1	1ms	10
+Hangzhou	AppHangzhou	50Mbps	1	1ms	10
+Wuhan	AppWuhan	50Mbps	1	1ms	10
+Hefei	AppHefei	50Mbps	1	1ms	10
+Nanjing	AppNanjing	50Mbps	1	1ms	10
+Haikou	AppHaikou	50Mbps	1	1ms	10
+HongKong	AppHongKong	50Mbps	1	1ms	10
+Xiamen	AppXiamen	50Mbps	1	1ms	10
+Hohhot	AppHohhot	50Mbps	1	1ms	10
+Yinchuan	AppYinchuan	50Mbps	1	1ms	10
+Lanzhou	AppLanzhou	50Mbps	1	1ms	10
+Lhasa	AppLhasa	50Mbps	1	1ms	10
+Shiquanhe	AppShiquanhe	50Mbps	1	1ms	10
+Kashi	AppKashi	50Mbps	1	1ms	10
+Qingdao	AppQingdao	50Mbps	1	1ms	10
+Jinan	AppJinan	50Mbps	1	1ms	10
+Shilazhuang	AppShilazhuang	50Mbps	1	1ms	10
+Taiyuan	AppTaiyuan	50Mbps	1	1ms	10
+Suzhou	AppSuzhou	50Mbps	1	1ms	10
+Changsha	AppChangsha	50Mbps	1	1ms	10
+Nanning	AppNanning	50Mbps	1	1ms	10
+Tianjin	AppTianjin	50Mbps	1	1ms	10
+Chongqing	AppChongqing	50Mbps	1	1ms	10
+Guiyang	AppGuiyang	50Mbps	1	1ms	10
+Kunming	AppKunming	50Mbps	1	1ms	10
+Chengdu	AppChengdu	50Mbps	1	1ms	10
+Zhengzhou	AppZhengzhou	50Mbps	1	1ms	10
+Nandhang	AppNandhang	50Mbps	1	1ms	10
+Fuzhou	AppFuzhou	50Mbps	1	1ms	10
+Dalian	AppDalian	50Mbps	1	1ms	10
+Shenyang	AppShenyang	50Mbps	1	1ms	10
+Changchun	AppChangchun	50Mbps	1	1ms	10
+Harbin	AppHarbin	50Mbps	1	1ms	10
+Urumqi	AppUrumqi	50Mbps	1	1ms	10
+Xining	AppXining	50Mbps	1	1ms	10

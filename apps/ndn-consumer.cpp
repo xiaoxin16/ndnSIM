@@ -56,7 +56,7 @@ Consumer::GetTypeId(void)
 
       .AddAttribute("Prefix", "Name of the Interest", StringValue("/"),
                     MakeNameAccessor(&Consumer::m_interestName), MakeNameChecker())
-      .AddAttribute("LifeTime", "LifeTime for interest packet", StringValue("2s"),
+      .AddAttribute("LifeTime", "LifeTime for interest packet", StringValue("4s"),
                     MakeTimeAccessor(&Consumer::m_interestLifeTime), MakeTimeChecker())
 
       .AddAttribute("RetxTimer",
@@ -105,6 +105,13 @@ Time
 Consumer::GetRetxTimer() const
 {
   return m_retxTimer;
+}
+
+
+void
+Consumer::SetSeq(uint32_t s)
+{
+	m_seq = s;
 }
 
 void

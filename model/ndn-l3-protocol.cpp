@@ -104,6 +104,19 @@ L3Protocol::GetTypeId(void)
       .AddTraceSource("TimedOutInterests", "TimedOutInterests",
                       MakeTraceSourceAccessor(&L3Protocol::m_timedOutInterests),
                       "ns3::ndn::L3Protocol::TimedOutInterestsCallback")
+	  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+      .AddTraceSource("enpInfo", "enpInfo",
+                      MakeTraceSourceAccessor(&L3Protocol::m_enpInfo),
+                      "ns3::ndn::L3Protocol::EnpInfoCallback")	  
+      .AddTraceSource("pitSize", "pitSize",
+                      MakeTraceSourceAccessor(&L3Protocol::m_pitSize),
+                      "ns3::ndn::L3Protocol::PitSizeCallback")
+      .AddTraceSource("pitDrop", "pitDrop",
+                      MakeTraceSourceAccessor(&L3Protocol::m_pitDrop),
+                      "ns3::ndn::L3Protocol::PitDropCallback")
+      .AddTraceSource("pitTimeOut", "pitTimeOut",
+                      MakeTraceSourceAccessor(&L3Protocol::m_pitTimeOut),
+                      "ns3::ndn::L3Protocol::PitTimeOutCallback")
     ;
   return tid;
 }
@@ -218,6 +231,14 @@ L3Protocol::initialize()
 
   m_impl->m_forwarder->beforeSatisfyInterest.connect(std::ref(m_satisfiedInterests));
   m_impl->m_forwarder->beforeExpirePendingInterest.connect(std::ref(m_timedOutInterests));
+  
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  m_impl->m_forwarder->setNodeId(m_node->GetId());
+  m_impl->m_forwarder->onIncomingInterestEnpInfo.connect(std::ref(m_enpInfo));
+  m_impl->m_forwarder->onIncomingInterestPitSize.connect(std::ref(m_pitSize));
+  m_impl->m_forwarder->onIncomingInterestPitDrop.connect(std::ref(m_pitDrop));
+  m_impl->m_forwarder->onIncomingInterestPitTimeOut.connect(std::ref(m_pitTimeOut));
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
 class IgnoreSections

@@ -1,0 +1,56 @@
+<XML>
+  <CONFIG>
+    <SCENARIO value="chinanet" />
+    <TOPO_FILE_PATH value="src/ndnSIM/examples/topologies/Chinanet.txt" />
+	<TRACE_DIR value = "attack-ratio-0.1-frequency" />
+    <CS_STRATEGY value="ns3::ndn::cs::Lru" />
+    <CS_SIZE value="1" />
+	
+    <PREFIX value="/prefix" />
+    <FW_STRATEGY value="/localhost/nfd/strategy/best-route" />
+	
+	<PIT_SIZE value="300" />
+	
+	
+    <CONSUMER_TYPE value="ns3::ndn::ConsumerZipfMandelbrot" />
+	
+	<GOOD_PREFIX_NUM value="4"/>
+    <FREQUENCY value="200" />
+    <CONTENTS value="100000"/>	
+	
+    <PRODUCER_TYPE value="ns3::ndn::Producer"/>	
+    <DATA_SIZE value="1024"/>	
+	
+    <START_TIME value="0" />
+	
+    <STOP_TIME value="20.002"/>
+	
+	
+	<ENTROPY_WINDOW value="2000" />
+	
+
+	<PIT_EXPIRED_TH value="40" />
+	
+	<THETA value="10" />
+	<ALPHA value="1.02" />
+	<CUMULATE_TH value="100" />
+	
+
+
+	<ATTACK_PREFIX_NUM value="3"/>
+	
+	<ATTACK_FREQUENCY value = "65" />
+	<ATTACK_BURSTT value="0.2" />
+	<ATTACK_PERIOD value="4" />
+	<ATTACK_DELAY value="3.9" />
+	<ATTACK_RATIO value="0.1" />
+	
+	<ATTACK_CONTENTS value="10000" />
+
+	<ATTACK_START_TIME value="10" />	
+	<ATTACK_STOP_TIME value="300.01" />
+
+	<DETECTION_STRATEGY value="1" />	
+
+  </CONFIG>
+</XML>

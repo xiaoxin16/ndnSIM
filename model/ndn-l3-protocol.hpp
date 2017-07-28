@@ -33,6 +33,8 @@
 #include <boost/property_tree/ptree_fwd.hpp>
 
 namespace nfd {
+	
+class Entropy;
 class Forwarder;
 class FibManager;
 class StrategyChoiceManager;
@@ -174,7 +176,13 @@ public:
 
   typedef void (*SatisfiedInterestsCallback)(const nfd::pit::Entry& pitEntry, const Face& inFace, const Data& data);
   typedef void (*TimedOutInterestsCallback)(const nfd::pit::Entry& pitEntry);
-
+  
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  typedef void (*EnpInfoCallback)(const nfd::Entropy& enp);
+  typedef void (*PitSizeCallback)(uint32_t s);
+  typedef void (*PitDropCallback)(uint32_t s);
+  typedef void (*PitTimeOutCallback)(uint32_t s);
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 protected:
   virtual void
   DoDispose(void); ///< @brief Do cleanup
@@ -218,6 +226,13 @@ private:
 
   TracedCallback<const nfd::pit::Entry&, const Face&/*in face*/, const Data&> m_satisfiedInterests;
   TracedCallback<const nfd::pit::Entry&> m_timedOutInterests;
+
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  TracedCallback<const nfd::Entropy&> m_enpInfo;
+  TracedCallback<uint32_t> m_pitSize;
+  TracedCallback<uint32_t> m_pitDrop;
+  TracedCallback<uint32_t> m_pitTimeOut;
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 };
 
 } // namespace ndn

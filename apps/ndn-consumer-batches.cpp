@@ -57,6 +57,7 @@ ConsumerBatches::GetTypeId(void)
 ConsumerBatches::ConsumerBatches()
   : m_initial(true)
 {
+	num = 0;
 }
 
 void
@@ -74,8 +75,10 @@ ConsumerBatches::StartApplication()
 void
 ConsumerBatches::AddBatch(uint32_t amount)
 {
-  // std::cout << Simulator::Now () << " adding batch of " << amount << "\n";
-  m_seqMax += amount;
+  //std::cout << Simulator::Now () << " adding batch of " << amount << "\n";
+  m_seqMax = 10000;// += amount;
+  num = amount;
+  index = 0;
   m_rtt->ClearSent(); // this is important, otherwise RTT estimation for the new batch will be
                       // affected by previous batch history
   m_initial = true;
@@ -85,12 +88,28 @@ ConsumerBatches::AddBatch(uint32_t amount)
 void
 ConsumerBatches::ScheduleNextPacket()
 {
+	index++;
+	//std::cout << GetNode()->GetId() << " send " << index << "th" <<std::endl;
+	if (index > num)
+	{
+		return;
+	}
   if (!m_sendEvent.IsRunning()) {
-    Time delay = Seconds(0);
-    if (!m_initial)
-      delay = m_rtt->RetransmitTimeout();
+    Time delay = Seconds(0.00002);
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //if (!m_initial)
+      //delay = m_rtt->RetransmitTimeout();
 
-    m_initial = false;
+    //m_initial = false;
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 		double min = 1.0;
+		double max = 10000.0;
+		Ptr<UniformRandomVariable> x = CreateObject<UniformRandomVariable> ();
+		x->SetAttribute ("Min", DoubleValue (min));
+		x->SetAttribute ("Max", DoubleValue (max));
+		uint32_t value = (uint32_t)(x->GetValue ());
+		//std::cout<<"value = " << value << std::endl;
+		SetSeq(value);
     m_sendEvent = Simulator::Schedule(delay, &Consumer::SendPacket, this);
   }
 }
